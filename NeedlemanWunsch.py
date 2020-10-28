@@ -79,12 +79,15 @@ def genTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[int]]:
             if(index2 != 0):
                 scoreLeft = row[index2 - 1].score + scoring.GAP
 
+            # Find max score of the three options
+            # NOTE: This is really gross because `max` cannot handle null values
             maxScore = max(
                 scoreDiagonal if scoreDiagonal is not None else float('-inf'),
                 scoreUp if scoreUp is not None else float('-inf'),
                 scoreLeft if scoreLeft is not None else float('-inf')
             )
 
+            # Find the direction of the smallest score
             direction = Direction.NONE
 
             if maxScore == scoreDiagonal:
