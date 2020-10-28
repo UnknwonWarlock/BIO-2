@@ -39,7 +39,7 @@ class Cell:
         return "{} - {}".format(self.score, Direction.name(self.direction))
 
 
-def genTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[int]]:
+def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[int]]:
     table = []
 
     tmp = seq1
