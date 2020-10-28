@@ -7,8 +7,46 @@ graduate students,  read an additional paper for your project: Callaway E, Ledfo
 
 2. Understand Genbank entries at NCBI and answer the following questions for https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=genbank&to=29903i
     1. What’s the size/length of this virus genome? What is it made of? (RNA/DNA)?
+    
+        29903 Base Pairs of RNA
+
     2. How many genes does this virus genome contain; what are their names?
+
+        11: ORF1ab, S, ORF3a, E, M, ORF6, ORF7a, ORF7b, ORF8, N, ORF10
+
     3. What does CDS mean? How many CDSs are there? How many proteins does thevirus genome code? What are they?
+
+        CDS means Coding Sequence. There are 12 CDSs. The virus genome codes for 28 distinct proteins:
+        
+        - ORF1ab polyprotein
+        - leader protein
+        - nsp2
+        - nsp3
+        - nsp4
+        - 3C-like proteinase
+        - nsp6
+        - nsp7
+        - nsp8
+        - nsp9
+        - nsp10
+        - RNA-dependent RNA polymerase
+        - helicase
+        - 3-to-5 exonuclease
+        - endoRNAse
+        - 2-O-ribose methyltransferase
+        - ORF1a polyprotein
+        - nsp11
+        - surface glycoprotein
+        - ORF3a protein
+        - envelope protein
+        - membrane glycoprotein
+        - ORF6 protein
+        - ORF7a protein
+        - ORF7b
+        - ORF8 protein
+        - nucleocapsid phosphoprotein
+        - ORF10 protein
+        
 
 3. Implement pairwise alignment in python (or whatever language your group likes) (you group should figure out which alignment algorithm you need to use);
 
