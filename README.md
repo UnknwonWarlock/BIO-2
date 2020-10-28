@@ -16,7 +16,37 @@ graduate students,  read an additional paper for your project: Callaway E, Ledfo
 
     3. What does CDS mean? How many CDSs are there? How many proteins does thevirus genome code? What are they?
 
-        CDS means Coding Sequence. There are 12 CDSs. @TODO
+        CDS means Coding Sequence. There are 12 CDSs. The virus genome codes for 28 distinct proteins:
+        
+        - ORF1ab polyprotein
+        - leader protein
+        - nsp2
+        - nsp3
+        - nsp4
+        - 3C-like proteinase
+        - nsp6
+        - nsp7
+        - nsp8
+        - nsp9
+        - nsp10
+        - RNA-dependent RNA polymerase
+        - helicase
+        - 3-to-5 exonuclease
+        - endoRNAse
+        - 2-O-ribose methyltransferase
+        - ORF1a polyprotein
+        - nsp11
+        - surface glycoprotein
+        - ORF3a protein
+        - envelope protein
+        - membrane glycoprotein
+        - ORF6 protein
+        - ORF7a protein
+        - ORF7b
+        - ORF8 protein
+        - nucleocapsid phosphoprotein
+        - ORF10 protein
+        
 
 3. Implement pairwise alignment in python (or whatever language your group likes) (you group should figure out which alignment algorithm you need to use);
 
