@@ -15,9 +15,9 @@ graduate students,  read an additional paper for your project: Callaway E, Ledfo
 4. Pairwise align the sequence of a structural protein coding gene from COVID19 with the corresponding gene from SARS/MERS, for example [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2):21563..25384 vs  [NC_019843.3](https://www.ncbi.nlm.nih.gov/nuccore/NC_019843):21456..25517;
 
 5. Count the number of mutations and characterize each mutation. So you should have two tables like:
-![OOPS](ReadMeImages/InstructionTable1.png)
+![Instruction 5 table](.readme-images/InstructionTable1.png)
 
 6. Run BLAST2seq on the two genes and summarize the finding:
-![OOPS](ReadMeImages/InstructionTable2.png)
+![Instruction 6 table](.readme-images/InstructionTable2.png)
 
 7. Other things that might worth to look into.
