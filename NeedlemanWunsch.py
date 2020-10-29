@@ -53,7 +53,6 @@ def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[
             # Top left corner of the table initializes to 0
             if index1 == 0 and index2 == 0:
                 row.append(Cell(0, Direction.NONE))
-                print(Cell(0, Direction.NONE), end=' | ')
                 continue
 
             # Initialize to null in the case there is no cell
@@ -99,9 +98,7 @@ def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[
                 direction = Direction.LEFT
 
             row.append(Cell(max_score, direction))
-            print(Cell(max_score, direction), end=' | ')
 
         table.append(row)
-        print()
 
     return table
