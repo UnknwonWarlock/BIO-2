@@ -4,7 +4,8 @@
 # Assigned Gene: S
 # SARS_COV_2 Range: [21563:25384], MERS_COV Range: [21456:25517]
 import os
-from NeedlemanWunsch import ScoringCriteria, alignmentTable
+
+from NeedlemanWunsch import ScoringCriteria, alignmentTable, score
 
 if __name__ == "__main__":
     scoring_criteria = ScoringCriteria(1, -1, -2)
@@ -28,7 +29,10 @@ if __name__ == "__main__":
     print("Isolating the S gene from the genomes")
     sars_s = sars_genome[21562:25384]
     mers_s = mers_genome[21455:25517]
-  
+
     print("Generating alignment table ...")
     table = alignmentTable(sars_s, mers_s, scoring_criteria)
+
+    print("Alignment score: {}".format(score(table)))
+
     print('done.')
