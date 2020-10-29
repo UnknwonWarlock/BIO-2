@@ -31,5 +31,5 @@ if __name__ == "__main__":
     sars_s = sars_genome[21562:25384]
     mers_s = mers_genome[21455:25517]
   
-    table = alignmentTable(sequence1, sequence2, scoring_criteria)
+    table = alignmentTable(sars_s, mers_s, scoring_criteria)
     print('done.')
