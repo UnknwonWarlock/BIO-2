@@ -101,4 +101,7 @@ def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[
 
         table.append(row)
 
+        progress = round((index1 + 1) / len(seq1), 2)
+        print("{}%".format(progress), end="\r")
+
     return table
