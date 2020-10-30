@@ -23,8 +23,8 @@ if __name__ == "__main__":
     sars_genome = sars_file.read()
     mers_genome = mers_file.read()
 
-    sars_genome.replace("\n", "")
-    mers_genome.replace("\n", "")
+    sars_genome = sars_genome.replace("\n", "")
+    mers_genome = mers_genome.replace("\n", "")
 
     print("Isolating the S gene from the genomes")
     sars_s = sars_genome[21562:25384]
