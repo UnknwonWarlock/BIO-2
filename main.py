@@ -5,7 +5,8 @@
 # SARS_COV_2 Range: [21563:25384], MERS_COV Range: [21456:25517]
 import os
 
-from NeedlemanWunsch import ScoringCriteria, alignmentTable, score
+from NeedlemanWunsch import (ScoringCriteria, alignmentTable, optimalAlignment,
+                             score)
 
 if __name__ == "__main__":
     scoring_criteria = ScoringCriteria(1, -1, -2)
@@ -23,8 +24,8 @@ if __name__ == "__main__":
     sars_genome = sars_file.read()
     mers_genome = mers_file.read()
 
-    sars_genome.replace("\n", "")
-    mers_genome.replace("\n", "")
+    sars_genome = sars_genome.replace("\n", "")
+    mers_genome = mers_genome.replace("\n", "")
 
     print("Isolating the S gene from the genomes")
     sars_s = sars_genome[21562:25384]
