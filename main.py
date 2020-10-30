@@ -33,6 +33,7 @@ if __name__ == "__main__":
     print("Generating alignment table ...")
     table = alignmentTable(sars_s, mers_s, scoring_criteria)
 
-    print("Alignment score: {}".format(score(table)))
+    alignment_score = score(table)
+    print("Alignment score: {}".format(alignment_score))
 
     print('done.')
