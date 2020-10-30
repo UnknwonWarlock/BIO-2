@@ -5,7 +5,8 @@
 # SARS_COV_2 Range: [21563:25384], MERS_COV Range: [21456:25517]
 import os
 
-from NeedlemanWunsch import ScoringCriteria, alignmentTable, score, optimalAlignment
+from NeedlemanWunsch import (ScoringCriteria, alignmentTable, optimalAlignment,
+                             score)
 
 if __name__ == "__main__":
     scoring_criteria = ScoringCriteria(1, -1, -2)

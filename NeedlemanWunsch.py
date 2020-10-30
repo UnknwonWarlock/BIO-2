@@ -105,10 +105,13 @@ def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[
 
         table.append(row)
 
-        progress = round((index1 + 1) / len(seq1), 2)
-        print("{}%".format(progress), end="\r")
+        progress = round(100 * (index1 + 1) / len(seq1), 2)
+        progressStr = str(progress)[::-1].zfill(5)[::-1]
+        print("{}%".format(progressStr), end="\r")
 
+    print()
     return table
+
 
 def optimalAlignment(seq1: str, seq2: str, table: List[List[int]]) -> (str, str):
     # rows and columns amounts
@@ -119,7 +122,7 @@ def optimalAlignment(seq1: str, seq2: str, table: List[List[int]]) -> (str, str)
     if rows != len(seq2) or columns != len(seq1):
         print("ERROR: Sequence lengths don't match table dimensions")
         return
-    
+
     # start at the end of the table
     rows = -1
     columns = -1
@@ -146,5 +149,5 @@ def optimalAlignment(seq1: str, seq2: str, table: List[List[int]]) -> (str, str)
         else:
             print("ERROR: bad direction found during traceback")
             return
-            
+
     return (align1[::-1], align2[::-1])
