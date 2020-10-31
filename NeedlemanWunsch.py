@@ -9,7 +9,7 @@ class Direction(Enum):
     UP = 0
     LEFT = 1
     DIAGONAL = 2
-    NONE = 4
+    NONE = 3
 
     @staticmethod
     def name(dir) -> str:
@@ -155,8 +155,19 @@ def optimalAlignment(seq1: str, seq2: str, table: List[List[int]]) -> (str, str)
     return (align1[::-1], align2[::-1])
 
 
-def writeAlignmentToFile(file_name: str, alignment: Tuple[str, str], line_length: int = 80) -> None:
+def writeTableToFile(file_name: str, table: List[List[Cell]]) -> None:
+    arrows = ['\u2B06', '\u2B05', '\u2196', '']
 
+    f = open(file_name, "w")
+    for row in table:
+        for cell in row:
+            f.write("{} {},".format(arrows[cell.direction.value], cell.score))
+        f.write('\n')
+
+    f.close()
+
+
+def writeAlignmentToFile(file_name: str, alignment: Tuple[str, str], line_length: int = 80) -> None:
     chunk1 = chunk(alignment[0], line_length)
     chunk2 = chunk(alignment[1], line_length)
 
