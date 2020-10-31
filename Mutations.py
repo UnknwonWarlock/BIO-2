@@ -60,6 +60,11 @@ def count(seq1: str, seq2: str) -> MutationCounts:
         if has_indel:
             continue
 
+        # Ensure that group is of length 3,
+        # if not it will crash
+        if len(pair[0]) != 3 or len(pair[1]) != 3:
+            continue
+
         # Mutation codes for different proteins
         if proteins_table[pair[0]] != proteins_table[pair[1]]:
             num_nonsyn_mutation += 1
