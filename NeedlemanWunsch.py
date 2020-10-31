@@ -155,7 +155,7 @@ def optimalAlignment(seq1: str, seq2: str, table: List[List[int]]) -> (str, str)
     return (align1[::-1], align2[::-1])
 
 
-def writeToFile(file_name: str, alignment: Tuple[str, str], line_length: int = 80) -> None:
+def writeAlignmentToFile(file_name: str, alignment: Tuple[str, str], line_length: int = 80) -> None:
 
     chunk1 = chunk(alignment[0], line_length)
     chunk2 = chunk(alignment[1], line_length)
