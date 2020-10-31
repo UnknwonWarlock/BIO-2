@@ -7,7 +7,7 @@ import os
 
 from Mutations import count as countMutations
 from NeedlemanWunsch import (ScoringCriteria, alignmentTable, optimalAlignment,
-                             score)
+                             score, writeToFile)
 
 if __name__ == "__main__":
     scoring_criteria = ScoringCriteria(1, -1, -2)
@@ -39,6 +39,8 @@ if __name__ == "__main__":
     print("Alignment score: {}".format(alignment_score))
 
     optimal_alignment = optimalAlignment(sars_s, mers_s, table)
+    writeToFile("alignment.txt", optimal_alignment)
+
     mutation_counts = countMutations(
         optimal_alignment[0], optimal_alignment[1])
     print("Mutations: {}".format(mutation_counts))
