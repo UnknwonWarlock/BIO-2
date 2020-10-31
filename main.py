@@ -5,6 +5,7 @@
 # SARS_COV_2 Range: [21563:25384], MERS_COV Range: [21456:25517]
 import os
 
+from Mutations import count as countMutations
 from NeedlemanWunsch import (ScoringCriteria, alignmentTable, optimalAlignment,
                              score)
 
@@ -36,5 +37,10 @@ if __name__ == "__main__":
 
     alignment_score = score(table)
     print("Alignment score: {}".format(alignment_score))
+
+    optimal_alignment = optimalAlignment(sars_s, mers_s, table)
+    mutation_counts = countMutations(
+        optimal_alignment[0], optimal_alignment[1])
+    print("Mutations: {}".format(mutation_counts))
 
     print('done.')

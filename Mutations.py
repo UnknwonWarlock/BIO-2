@@ -20,18 +20,52 @@ proteins_table = {
 }
 
 
-def chunk(input: str, size: int) -> List[str]:
+def chunk(input: str, size: int = 3) -> List[str]:
     return [input[i:i+size] for i in range(0, len(input), size)]
 
 
-def proteins(sequence: str) -> List[str]:
-    # NOTE: Not sure what to do with gaps
-    chunked_sequence = chunk(sequence, 3)
-    proteins = []
-    for codon in chunked_sequence:
-        if codon in proteins_table:
-            proteins.append(proteins_table[codon])
-        else:
-            proteins.append(None)
+class MutationCounts:
+    def __init__(self, indel: int, non_syn: int, syn: int):
+        self.indel = indel
+        self.non_syn = non_syn
+        self.syn = syn
 
-    return ''.join(proteins)
+    def __repr__(self):
+        return "Indel: {}, Non-Synonymous: {}, Synonymous: {}".format(
+            self.indel, self.non_syn, self.syn)
+
+
+def count(seq1: str, seq2: str) -> MutationCounts:
+    chunks1 = chunk(seq1)
+    chunks2 = chunk(seq2)
+
+    num_indel = 0
+    num_nonsyn_mutation = 0
+    num_syn_mutation = 0
+
+    for pair in zip(chunks1, chunks2):
+
+        # Identical
+        if pair[0] == pair[1]:
+            continue
+
+        # Check for indel
+        has_indel = False
+        for index, base in enumerate(pair[0]):
+            if pair[0][index] == '_' or pair[1][index] == '_':
+                num_indel += 1
+                has_indel = True
+
+        # If there was an indel, don't check for point mutation
+        if has_indel:
+            continue
+
+        # Mutation codes for different proteins
+        if proteins_table[pair[0]] != proteins_table[pair[1]]:
+            num_nonsyn_mutation += 1
+            continue
+
+        # Mutation codes for same protein
+        num_syn_mutation += 1
+
+    return MutationCounts(num_indel, num_nonsyn_mutation, num_syn_mutation)
