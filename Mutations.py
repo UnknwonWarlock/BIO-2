@@ -1,3 +1,4 @@
+import re
 from typing import List, Tuple
 
 proteins_table = {
@@ -49,15 +50,13 @@ def count(seq1: str, seq2: str) -> MutationCounts:
         if pair[0] == pair[1]:
             continue
 
-        # Check for indel
-        has_indel = False
-        for index, base in enumerate(pair[0]):
-            if pair[0][index] == '_' or pair[1][index] == '_':
-                num_indel += 1
-                has_indel = True
+        # Count indels
+        num_indel_in_triplet = len(re.findall(
+            "_+", pair[0])) + len(re.findall("_+", pair[1]))
 
         # If there was an indel, don't check for point mutation
-        if has_indel:
+        if num_indel_in_triplet > 0:
+            num_indel += num_indel_in_triplet
             continue
 
         # Ensure that group is of length 3,
