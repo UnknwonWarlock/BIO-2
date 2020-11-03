@@ -37,6 +37,14 @@ class MutationCounts:
 
 
 def count(seq1: str, seq2: str) -> MutationCounts:
+    # Make sure sequences begin with start codon
+    # to set the reading frame
+    if seq1[0:3] != "ATG":
+        seq1 = seq1[1:]
+
+    if seq2[0:3] != "ATG":
+        seq2 = seq2[1:]
+
     chunks1 = chunk(seq1)
     chunks2 = chunk(seq2)
 
