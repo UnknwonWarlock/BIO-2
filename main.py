@@ -7,9 +7,11 @@ import os
 
 from Mutations import count as countMutations
 from NeedlemanWunsch import (ScoringCriteria, alignmentTable, optimalAlignment,
-                             score)
+                             score, writeAlignmentToFile, writeTableToFile)
 
 if __name__ == "__main__":
+    log_flag = False
+
     scoring_criteria = ScoringCriteria(1, -1, -2)
 
     sars_filename = "Data/SARS_COV_2.fasta"
@@ -35,10 +37,19 @@ if __name__ == "__main__":
     print("Generating alignment table ...")
     table = alignmentTable(sars_s, mers_s, scoring_criteria)
 
+    if log_flag:
+        writeTableToFile("table.csv", table)
+        print("Alignment table written to table.csv")
+
     alignment_score = score(table)
     print("Alignment score: {}".format(alignment_score))
 
     optimal_alignment = optimalAlignment(sars_s, mers_s, table)
+
+    if log_flag:
+        writeAlignmentToFile("alignment.txt", optimal_alignment)
+        print("Optimal alignment written to alignment.txt")
+
     mutation_counts = countMutations(
         optimal_alignment[0], optimal_alignment[1])
     print("Mutations: {}".format(mutation_counts))
