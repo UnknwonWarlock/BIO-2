@@ -42,7 +42,7 @@ class Cell:
 
 
 def score(table: List[List[int]]) -> int:
-    return table[-1][-1]
+    return table[-1][-1].score
 
 
 def alignmentTable(seq1: str, seq2: str, scoring: ScoringCriteria) -> List[List[int]]:
